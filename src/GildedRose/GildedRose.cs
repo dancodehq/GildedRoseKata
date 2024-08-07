@@ -14,7 +14,8 @@ namespace GildedRoseKata
         {
             foreach (var item in Items)
             {
-                if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
+                var notAgedBrie = item.Name != "Aged Brie";
+                if (notAgedBrie && item.Name != "Backstage passes to a TAFKAL80ETC concert")
                 {
                     if (item.Quality > 0)
                     {
@@ -58,7 +59,7 @@ namespace GildedRoseKata
 
                 if (item.SellIn < 0)
                 {
-                    if (item.Name != "Aged Brie")
+                    if (notAgedBrie)
                     {
                         if (item.Name != "Backstage passes to a TAFKAL80ETC concert")
                         {
