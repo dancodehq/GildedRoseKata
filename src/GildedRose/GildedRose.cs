@@ -70,16 +70,16 @@ namespace GildedRoseKata
                     }
                     else
                     {
-                        var notSulfuras = item.Name != "Sulfuras, Hand of Ragnaros";
+                        var isSulfuras = item.Name == "Sulfuras, Hand of Ragnaros";
                         if (item.Quality > 0)
                         {
-                            if (notSulfuras)
+                            if (!isSulfuras)
                             {
                                 item.Quality = item.Quality - 1;
                             }
                         }
 
-                        if (notSulfuras)
+                        if (!isSulfuras)
                         {
                             item.SellIn = item.SellIn - 1;
                         }
@@ -88,7 +88,7 @@ namespace GildedRoseKata
                         {
                             if (item.Quality > 0)
                             {
-                                if (notSulfuras)
+                                if (!isSulfuras)
                                 {
                                     item.Quality = item.Quality - 1;
                                 }
