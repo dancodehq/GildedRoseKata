@@ -52,16 +52,7 @@ namespace GildedRoseKata
 
         private void UpdateSulfuras(Item item)
         {
-            if (item.Quality > 0)
-            {
-            }
 
-            if (item.SellIn < 0)
-            {
-                if (item.Quality > 0)
-                {
-                }
-            }
         }
 
         private void UpdateBackstagePass(Item item)
