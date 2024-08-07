@@ -33,5 +33,14 @@ namespace GildedRoseTests
             Assert.Equal(4, items[0].SellIn);
         }
 
+        [Fact]
+        public void Normal_item_quality_does_not_degrade_past_zero()
+        {
+            List<Item> items = [new Item { Name = "Sword", Quality = 0, SellIn = 0 }];
+            var app = new GildedRose(items);
+            app.UpdateQuality();
+            Assert.Equal(0, items[0].Quality);
+        }
+
     }
 }
