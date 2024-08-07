@@ -34,8 +34,8 @@ namespace GildedRoseKata
                 }
                 else
                 {
-                    var notBackstagePass = item.Name != "Backstage passes to a TAFKAL80ETC concert";
-                    if (notBackstagePass)
+                    var isBackstagePass = item.Name == "Backstage passes to a TAFKAL80ETC concert";
+                    if (!isBackstagePass)
                     {
                         if (item.Quality > 0)
                         {
@@ -79,7 +79,7 @@ namespace GildedRoseKata
 
                     if (item.SellIn < 0)
                     {
-                        if (notBackstagePass)
+                        if (!isBackstagePass)
                         {
                             if (item.Quality > 0)
                             {
