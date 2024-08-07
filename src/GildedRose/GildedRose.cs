@@ -73,39 +73,56 @@ namespace GildedRoseKata
                         var isSulfuras = item.Name == "Sulfuras, Hand of Ragnaros";
                         if (isSulfuras)
                         {
-                            foo(item, true);
+                            if (item.Quality > 0)
+                            {
+                                if (!true)
+                                {
+                                    item.Quality = item.Quality - 1;
+                                }
+                            }
+
+                            if (!true)
+                            {
+                                item.SellIn = item.SellIn - 1;
+                            }
+
+                            if (item.SellIn < 0)
+                            {
+                                if (item.Quality > 0)
+                                {
+                                    if (!true)
+                                    {
+                                        item.Quality = item.Quality - 1;
+                                    }
+                                }
+                            }
                         }
                         else
                         {
-                            foo(item, false);
+                            if (item.Quality > 0)
+                            {
+                                if (!false)
+                                {
+                                    item.Quality = item.Quality - 1;
+                                }
+                            }
+
+                            if (!false)
+                            {
+                                item.SellIn = item.SellIn - 1;
+                            }
+
+                            if (item.SellIn < 0)
+                            {
+                                if (item.Quality > 0)
+                                {
+                                    if (!false)
+                                    {
+                                        item.Quality = item.Quality - 1;
+                                    }
+                                }
+                            }
                         }
-                    }
-                }
-            }
-        }
-
-        private void foo(Item item, bool isSulfuras)
-        {
-            if (item.Quality > 0)
-            {
-                if (!isSulfuras)
-                {
-                    item.Quality = item.Quality - 1;
-                }
-            }
-
-            if (!isSulfuras)
-            {
-                item.SellIn = item.SellIn - 1;
-            }
-
-            if (item.SellIn < 0)
-            {
-                if (item.Quality > 0)
-                {
-                    if (!isSulfuras)
-                    {
-                        item.Quality = item.Quality - 1;
                     }
                 }
             }
