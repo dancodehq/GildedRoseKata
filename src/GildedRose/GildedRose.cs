@@ -88,10 +88,7 @@ namespace GildedRoseKata
                         {
                             if (item.Quality > 0)
                             {
-                                if (!false)
-                                {
-                                    item.Quality = item.Quality - 1;
-                                }
+                                item.Quality = item.Quality - 1;
                             }
 
                             if (!false)
