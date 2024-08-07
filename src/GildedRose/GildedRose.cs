@@ -15,14 +15,71 @@ namespace GildedRoseKata
             foreach (var item in Items)
             {
                 var isAgedBrie = item.Name == "Aged Brie";
-                if (!isAgedBrie && item.Name != "Backstage passes to a TAFKAL80ETC concert")
+                foo(item, isAgedBrie);
+            }
+        }
+
+        private void foo(Item item, bool isAgedBrie)
+        {
+            if (!isAgedBrie && item.Name != "Backstage passes to a TAFKAL80ETC concert")
+            {
+                if (item.Quality > 0)
                 {
-                    if (item.Quality > 0)
+                    if (item.Name != "Sulfuras, Hand of Ragnaros")
                     {
-                        if (item.Name != "Sulfuras, Hand of Ragnaros")
+                        item.Quality = item.Quality - 1;
+                    }
+                }
+            }
+            else
+            {
+                if (item.Quality < 50)
+                {
+                    item.Quality = item.Quality + 1;
+
+                    if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
+                    {
+                        if (item.SellIn < 11)
                         {
-                            item.Quality = item.Quality - 1;
+                            if (item.Quality < 50)
+                            {
+                                item.Quality = item.Quality + 1;
+                            }
                         }
+
+                        if (item.SellIn < 6)
+                        {
+                            if (item.Quality < 50)
+                            {
+                                item.Quality = item.Quality + 1;
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (item.Name != "Sulfuras, Hand of Ragnaros")
+            {
+                item.SellIn = item.SellIn - 1;
+            }
+
+            if (item.SellIn < 0)
+            {
+                if (!isAgedBrie)
+                {
+                    if (item.Name != "Backstage passes to a TAFKAL80ETC concert")
+                    {
+                        if (item.Quality > 0)
+                        {
+                            if (item.Name != "Sulfuras, Hand of Ragnaros")
+                            {
+                                item.Quality = item.Quality - 1;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        item.Quality = item.Quality - item.Quality;
                     }
                 }
                 else
@@ -30,58 +87,6 @@ namespace GildedRoseKata
                     if (item.Quality < 50)
                     {
                         item.Quality = item.Quality + 1;
-
-                        if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
-                        {
-                            if (item.SellIn < 11)
-                            {
-                                if (item.Quality < 50)
-                                {
-                                    item.Quality = item.Quality + 1;
-                                }
-                            }
-
-                            if (item.SellIn < 6)
-                            {
-                                if (item.Quality < 50)
-                                {
-                                    item.Quality = item.Quality + 1;
-                                }
-                            }
-                        }
-                    }
-                }
-
-                if (item.Name != "Sulfuras, Hand of Ragnaros")
-                {
-                    item.SellIn = item.SellIn - 1;
-                }
-
-                if (item.SellIn < 0)
-                {
-                    if (!isAgedBrie)
-                    {
-                        if (item.Name != "Backstage passes to a TAFKAL80ETC concert")
-                        {
-                            if (item.Quality > 0)
-                            {
-                                if (item.Name != "Sulfuras, Hand of Ragnaros")
-                                {
-                                    item.Quality = item.Quality - 1;
-                                }
-                            }
-                        }
-                        else
-                        {
-                            item.Quality = item.Quality - item.Quality;
-                        }
-                    }
-                    else
-                    {
-                        if (item.Quality < 50)
-                        {
-                            item.Quality = item.Quality + 1;
-                        }
                     }
                 }
             }
