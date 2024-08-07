@@ -60,5 +60,14 @@ namespace GildedRoseTests
             Assert.Equal(32, items[0].Quality);
         }
 
+        [Fact]
+        public void Aged_brie_quality_never_improves_past_fifty()
+        {
+            List<Item> items = [new Item { Name = "Aged Brie", Quality = 50, SellIn = 0 }];
+            var app = new GildedRose(items);
+            app.UpdateQuality();
+            Assert.Equal(50, items[0].Quality);
+        }
+
     }
 }
