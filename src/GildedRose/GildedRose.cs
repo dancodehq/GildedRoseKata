@@ -91,10 +91,7 @@ namespace GildedRoseKata
                                 item.Quality = item.Quality - 1;
                             }
 
-                            if (!false)
-                            {
-                                item.SellIn = item.SellIn - 1;
-                            }
+                            item.SellIn = item.SellIn - 1;
 
                             if (item.SellIn < 0)
                             {
