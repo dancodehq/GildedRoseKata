@@ -101,5 +101,19 @@ namespace GildedRoseTests
             Assert.Equal(32, items[0].Quality);
         }
 
+        [Theory]
+        [InlineData(1)]
+        [InlineData(2)]
+        [InlineData(3)]
+        [InlineData(4)]
+        [InlineData(5)]
+        public void Backstage_pass_quality_improves_by_three_when_five_days_or_less_remaining(int sellIn)
+        {
+            List<Item> items = [new Item { Name = "Backstage passes to a TAFKAL80ETC concert", Quality = 30, SellIn = sellIn }];
+            var app = new GildedRose(items);
+            app.UpdateQuality();
+            Assert.Equal(33, items[0].Quality);
+        }
+
     }
 }
