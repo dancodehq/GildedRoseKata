@@ -17,20 +17,7 @@ namespace GildedRoseKata
                 var isAgedBrie = item.Name == "Aged Brie";
                 if (isAgedBrie)
                 {
-                    if (item.Quality < 50)
-                    {
-                        item.Quality = item.Quality + 1;
-                    }
-
-                    item.SellIn = item.SellIn - 1;
-
-                    if (item.SellIn < 0)
-                    {
-                        if (item.Quality < 50)
-                        {
-                            item.Quality = item.Quality + 1;
-                        }
-                    }
+                    UpdateAgedBrie(item);
                 }
                 else
                 {
@@ -102,6 +89,24 @@ namespace GildedRoseKata
                             }
                         }
                     }
+                }
+            }
+        }
+
+        private void UpdateAgedBrie(Item item)
+        {
+            if (item.Quality < 50)
+            {
+                item.Quality = item.Quality + 1;
+            }
+
+            item.SellIn = item.SellIn - 1;
+
+            if (item.SellIn < 0)
+            {
+                if (item.Quality < 50)
+                {
+                    item.Quality = item.Quality + 1;
                 }
             }
         }
