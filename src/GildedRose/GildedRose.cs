@@ -15,7 +15,14 @@ namespace GildedRoseKata
             foreach (var item in Items)
             {
                 var isAgedBrie = item.Name == "Aged Brie";
-                foo(item, isAgedBrie);
+                if (isAgedBrie)
+                {
+                    foo(item, true);
+                }
+                else
+                {
+                    foo(item, false);
+                }
             }
         }
 
