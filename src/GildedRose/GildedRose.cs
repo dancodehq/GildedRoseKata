@@ -14,27 +14,20 @@ namespace GildedRoseKata
         {
             foreach (var item in Items)
             {
-                if (item.Name == "Aged Brie")
+                switch (item.Name)
                 {
-                    UpdateAgedBrie(item);
-                }
-                else
-                {
-                    if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
-                    {
+                    case "Aged Brie":
+                        UpdateAgedBrie(item);
+                        break;
+                    case "Backstage passes to a TAFKAL80ETC concert":
                         UpdateBackstagePass(item);
-                    }
-                    else
-                    {
-                        if (item.Name == "Sulfuras, Hand of Ragnaros")
-                        {
-                            UpdateSulfuras(item);
-                        }
-                        else
-                        {
-                            UpdateNormal(item);
-                        }
-                    }
+                        break;
+                    case "Sulfuras, Hand of Ragnaros":
+                        UpdateSulfuras(item);
+                        break;
+                    default:
+                        UpdateNormal(item);
+                        break;
                 }
             }
         }
