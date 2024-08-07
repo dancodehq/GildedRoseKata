@@ -24,5 +24,14 @@ namespace GildedRoseTests
             Assert.Equal(8, items[0].Quality);
         }
 
+        [Fact]
+        public void Normal_item_sell_by_decreases_by_one_each_day()
+        {
+            List<Item> items = [new Item { Name = "Sword", Quality = 10, SellIn = 5 }];
+            var app = new GildedRose(items);
+            app.UpdateQuality();
+            Assert.Equal(4, items[0].SellIn);
+        }
+
     }
 }
