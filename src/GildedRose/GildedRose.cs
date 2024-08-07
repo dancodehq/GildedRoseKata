@@ -71,7 +71,14 @@ namespace GildedRoseKata
                     else
                     {
                         var isSulfuras = item.Name == "Sulfuras, Hand of Ragnaros";
-                        foo(item, isSulfuras);
+                        if (isSulfuras)
+                        {
+                            foo(item, true);
+                        }
+                        else
+                        {
+                            foo(item, false);
+                        }
                     }
                 }
             }
