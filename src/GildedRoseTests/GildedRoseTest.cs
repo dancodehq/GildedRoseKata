@@ -69,5 +69,14 @@ namespace GildedRoseTests
             Assert.Equal(50, items[0].Quality);
         }
 
+        [Theory, InlineData(0), InlineData(1)]
+        public void Sulfuras_quality_never_degrades(int sellIn)
+        {
+            List<Item> items = [new Item { Name = "Sulfuras, Hand of Ragnaros", Quality = 50, SellIn = sellIn }];
+            var app = new GildedRose(items);
+            app.UpdateQuality();
+            Assert.Equal(50, items[0].Quality);
+        }
+
     }
 }
