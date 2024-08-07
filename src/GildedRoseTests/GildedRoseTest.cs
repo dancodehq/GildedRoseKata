@@ -133,5 +133,14 @@ namespace GildedRoseTests
             Assert.Equal(0, items[0].Quality);
         }
 
+        [Fact]
+        public void Backstage_pass_sell_by_decreases_by_one_each_day()
+        {
+            List<Item> items = [new Item { Name = "Backstage passes to a TAFKAL80ETC concert", Quality = 30, SellIn = 5 }];
+            var app = new GildedRose(items);
+            app.UpdateQuality();
+            Assert.Equal(4, items[0].SellIn);
+        }
+
     }
 }
