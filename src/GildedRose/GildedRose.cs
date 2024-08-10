@@ -32,6 +32,21 @@ namespace GildedRoseKata
             }
         }
 
+        class SulfurasStrategy
+        {
+            private readonly Item _item;
+
+            public SulfurasStrategy(Item item)
+            {
+                _item = item;
+            }
+
+            public void Update()
+            {
+                
+            }
+        }
+
         class NormalItemStrategy
         {
             private readonly Item _item;
