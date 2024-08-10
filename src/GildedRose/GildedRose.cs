@@ -17,7 +17,8 @@ namespace GildedRoseKata
                 switch (item.Name)
                 {
                     case "Aged Brie":
-                        UpdateAgedBrie(item);
+                        new AgedBrieStrategy(item).Update();
+                        //UpdateAgedBrie(item);
                         break;
                     case "Backstage passes to a TAFKAL80ETC concert":
                         new BackstagePassStrategy(item).Update();
