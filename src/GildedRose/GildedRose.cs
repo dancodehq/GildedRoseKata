@@ -21,14 +21,19 @@ namespace GildedRoseKata
 
         private static ItemBase CreateItem(Item item)
         {
-            return item.Name switch
+            switch (item.Name)
             {
-                "Aged Brie" => new AgedBrie(item),
-                "Backstage passes to a TAFKAL80ETC concert" => new BackstagePass(item),
-                "Sulfuras, Hand of Ragnaros" => new Sulfuras(item),
-                { } x when x.StartsWith("Conjured") => new ConjuredItem(item),
-                _ => new NormalItem(item)
-            };
+                case "Aged Brie":
+                    return new AgedBrie(item);
+                case "Backstage passes to a TAFKAL80ETC concert":
+                    return new BackstagePass(item);
+                case "Sulfuras, Hand of Ragnaros":
+                    return new Sulfuras(item);
+                case { } x when x.StartsWith("Conjured"):
+                    return new ConjuredItem(item);
+                default:
+                    return new NormalItem(item);
+            }
         }
 
         class Sulfuras : ItemBase
