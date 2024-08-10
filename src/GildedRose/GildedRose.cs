@@ -19,21 +19,19 @@ namespace GildedRoseKata
                 {
                     case "Aged Brie":
                         itemStrategy = new AgedBrieStrategy(item);
-                        itemStrategy.Update();
                         break;
                     case "Backstage passes to a TAFKAL80ETC concert":
                         itemStrategy = new BackstagePassStrategy(item);
-                        itemStrategy.Update();
                         break;
                     case "Sulfuras, Hand of Ragnaros":
                         itemStrategy = new SulfurasStrategy(item);
-                        itemStrategy.Update();
                         break;
                     default:
                         itemStrategy = new NormalItemStrategy(item);
-                        itemStrategy.Update();
                         break;
                 }
+
+                itemStrategy.Update();
             }
         }
 
