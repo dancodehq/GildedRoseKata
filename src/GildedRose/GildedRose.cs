@@ -32,7 +32,7 @@ namespace GildedRoseKata
             }
         }
 
-        class SulfurasStrategy
+        class SulfurasStrategy : ItemStrategyBase
         {
             private readonly Item _item;
 
@@ -41,7 +41,7 @@ namespace GildedRoseKata
                 _item = item;
             }
 
-            public void Update()
+            public override void Update()
             {
                 
             }
@@ -52,7 +52,7 @@ namespace GildedRoseKata
             public abstract void Update();
         }
 
-        class NormalItemStrategy
+        class NormalItemStrategy : ItemStrategyBase
         {
             private readonly Item _item;
 
@@ -61,7 +61,7 @@ namespace GildedRoseKata
                 _item = item;
             }
 
-            public void Update()
+            public override void Update()
             {
                 if (_item.Quality > 0)
                 {
@@ -80,7 +80,7 @@ namespace GildedRoseKata
             }
         }
 
-        class BackstagePassStrategy
+        class BackstagePassStrategy : ItemStrategyBase
         {
             private readonly Item _item;
 
@@ -89,7 +89,7 @@ namespace GildedRoseKata
                 _item = item;
             }
 
-            public void Update()
+            public override void Update()
             {
                 if (_item.Quality < 50)
                 {
@@ -124,7 +124,7 @@ namespace GildedRoseKata
             }
         }
 
-        class AgedBrieStrategy
+        class AgedBrieStrategy : ItemStrategyBase
         {
             private readonly Item _item;
 
@@ -133,7 +133,7 @@ namespace GildedRoseKata
                 _item = item;
             }
 
-            public void Update()
+            public override void Update()
             {
                 if (_item.Quality < 50)
                 {
