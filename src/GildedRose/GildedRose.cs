@@ -20,7 +20,8 @@ namespace GildedRoseKata
                         UpdateAgedBrie(item);
                         break;
                     case "Backstage passes to a TAFKAL80ETC concert":
-                        UpdateBackstagePass(item);
+                        new BackstagePassStrategy(item).Update();
+                        //UpdateBackstagePass(item);
                         break;
                     case "Sulfuras, Hand of Ragnaros":
                         new SulfurasStrategy(item).Update();
