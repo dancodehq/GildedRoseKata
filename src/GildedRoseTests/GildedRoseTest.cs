@@ -142,5 +142,14 @@ namespace GildedRoseTests
             Assert.Equal(4, items[0].SellIn);
         }
 
+        [Fact]
+        public void Conjured_item_quality_degrades_by_two_each_day_when_sell_by_is_in_the_future()
+        {
+            List<Item> items = [new Item { Name = "Conjured Moon Cake", Quality = 30, SellIn = 5 }];
+            var app = new GildedRose(items);
+            app.UpdateQuality();
+            Assert.Equal(28, items[0].Quality);
+        }
+
     }
 }
