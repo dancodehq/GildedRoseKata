@@ -26,7 +26,8 @@ namespace GildedRoseKata
                         UpdateSulfuras(item);
                         break;
                     default:
-                        UpdateNormal(item);
+                        new NormalItemStrategy(item).Update();
+                        //UpdateNormal(item);
                         break;
                 }
             }
