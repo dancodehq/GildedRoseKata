@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace GildedRoseKata
 {
@@ -97,7 +98,7 @@ namespace GildedRoseKata
             {
                 if (_item.Quality > 0)
                 {
-                    _item.Quality = _item.Quality - 2;
+                    _item.Quality = Math.Clamp(_item.Quality - 2, 0, 50);
                 }
 
                 _item.SellIn = _item.SellIn - 1;
@@ -106,7 +107,7 @@ namespace GildedRoseKata
                 {
                     if (_item.Quality > 0)
                     {
-                        _item.Quality = _item.Quality - 2;
+                        _item.Quality = Math.Clamp(_item.Quality - 2, 0, 50);
                     }
                 }
             }
