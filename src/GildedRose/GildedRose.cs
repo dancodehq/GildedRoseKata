@@ -23,7 +23,8 @@ namespace GildedRoseKata
                         UpdateBackstagePass(item);
                         break;
                     case "Sulfuras, Hand of Ragnaros":
-                        UpdateSulfuras(item);
+                        new SulfurasStrategy(item).Update();
+                        //UpdateSulfuras(item);
                         break;
                     default:
                         new NormalItemStrategy(item).Update();
