@@ -14,28 +14,28 @@ namespace GildedRoseKata
         {
             foreach (var item in Items)
             {
-                var itemStrategy = CreateItemStrategy(item);
-                itemStrategy.Update();
+                var gildedRoseItem = CreateItem(item);
+                gildedRoseItem.Update();
             }
         }
 
-        private static ItemStrategyBase CreateItemStrategy(Item item)
+        private static ItemBase CreateItem(Item item)
         {
             return item.Name switch
             {
-                "Aged Brie" => new AgedBrieStrategy(item),
-                "Backstage passes to a TAFKAL80ETC concert" => new BackstagePassStrategy(item),
-                "Sulfuras, Hand of Ragnaros" => new SulfurasStrategy(item),
-                { } x when x.StartsWith("Conjured") => new ConjuredItemStrategy(item),
-                _ => new NormalItemStrategy(item)
+                "Aged Brie" => new AgedBrie(item),
+                "Backstage passes to a TAFKAL80ETC concert" => new BackstagePass(item),
+                "Sulfuras, Hand of Ragnaros" => new Sulfuras(item),
+                { } x when x.StartsWith("Conjured") => new ConjuredItem(item),
+                _ => new NormalItem(item)
             };
         }
 
-        class SulfurasStrategy : ItemStrategyBase
+        class Sulfuras : ItemBase
         {
             private readonly Item _item;
 
-            public SulfurasStrategy(Item item)
+            public Sulfuras(Item item)
             {
                 _item = item;
             }
@@ -46,16 +46,16 @@ namespace GildedRoseKata
             }
         }
 
-        abstract class ItemStrategyBase
+        abstract class ItemBase
         {
             public abstract void Update();
         }
 
-        class NormalItemStrategy : ItemStrategyBase
+        class NormalItem : ItemBase
         {
             private readonly Item _item;
 
-            public NormalItemStrategy(Item item)
+            public NormalItem(Item item)
             {
                 _item = item;
             }
@@ -79,11 +79,11 @@ namespace GildedRoseKata
             }
         }
 
-        class ConjuredItemStrategy : ItemStrategyBase
+        class ConjuredItem : ItemBase
         {
             private readonly Item _item;
 
-            public ConjuredItemStrategy(Item item)
+            public ConjuredItem(Item item)
             {
                 _item = item;
             }
@@ -107,11 +107,11 @@ namespace GildedRoseKata
             }
         }
 
-        class BackstagePassStrategy : ItemStrategyBase
+        class BackstagePass : ItemBase
         {
             private readonly Item _item;
 
-            public BackstagePassStrategy(Item item)
+            public BackstagePass(Item item)
             {
                 _item = item;
             }
@@ -148,11 +148,11 @@ namespace GildedRoseKata
             }
         }
 
-        class AgedBrieStrategy : ItemStrategyBase
+        class AgedBrie : ItemBase
         {
             private readonly Item _item;
 
-            public AgedBrieStrategy(Item item)
+            public AgedBrie(Item item)
             {
                 _item = item;
             }
