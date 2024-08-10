@@ -21,7 +21,6 @@ namespace GildedRoseKata
                         break;
                     case "Backstage passes to a TAFKAL80ETC concert":
                         new BackstagePassStrategy(item).Update();
-                        //UpdateBackstagePass(item);
                         break;
                     case "Sulfuras, Hand of Ragnaros":
                         new SulfurasStrategy(item).Update();
@@ -117,40 +116,6 @@ namespace GildedRoseKata
                 {
                     _item.Quality = _item.Quality - _item.Quality;
                 }
-            }
-        }
-
-        private void UpdateBackstagePass(Item item)
-        {
-            if (item.Quality < 50)
-            {
-                item.Quality = item.Quality + 1;
-
-                if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
-                {
-                    if (item.SellIn < 11)
-                    {
-                        if (item.Quality < 50)
-                        {
-                            item.Quality = item.Quality + 1;
-                        }
-                    }
-
-                    if (item.SellIn < 6)
-                    {
-                        if (item.Quality < 50)
-                        {
-                            item.Quality = item.Quality + 1;
-                        }
-                    }
-                }
-            }
-
-            item.SellIn = item.SellIn - 1;
-
-            if (item.SellIn < 0)
-            {
-                item.Quality = item.Quality - item.Quality;
             }
         }
 
