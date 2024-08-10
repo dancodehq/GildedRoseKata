@@ -18,7 +18,6 @@ namespace GildedRoseKata
                 {
                     case "Aged Brie":
                         new AgedBrieStrategy(item).Update();
-                        //UpdateAgedBrie(item);
                         break;
                     case "Backstage passes to a TAFKAL80ETC concert":
                         new BackstagePassStrategy(item).Update();
@@ -144,24 +143,6 @@ namespace GildedRoseKata
                     {
                         _item.Quality = _item.Quality + 1;
                     }
-                }
-            }
-        }
-
-        private void UpdateAgedBrie(Item item)
-        {
-            if (item.Quality < 50)
-            {
-                item.Quality = item.Quality + 1;
-            }
-
-            item.SellIn = item.SellIn - 1;
-
-            if (item.SellIn < 0)
-            {
-                if (item.Quality < 50)
-                {
-                    item.Quality = item.Quality + 1;
                 }
             }
         }
