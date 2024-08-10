@@ -93,22 +93,19 @@ namespace GildedRoseKata
                 {
                     _item.Quality = _item.Quality + 1;
 
-                    if (_item.Name == "Backstage passes to a TAFKAL80ETC concert")
+                    if (_item.SellIn < 11)
                     {
-                        if (_item.SellIn < 11)
+                        if (_item.Quality < 50)
                         {
-                            if (_item.Quality < 50)
-                            {
-                                _item.Quality = _item.Quality + 1;
-                            }
+                            _item.Quality = _item.Quality + 1;
                         }
+                    }
 
-                        if (_item.SellIn < 6)
+                    if (_item.SellIn < 6)
+                    {
+                        if (_item.Quality < 50)
                         {
-                            if (_item.Quality < 50)
-                            {
-                                _item.Quality = _item.Quality + 1;
-                            }
+                            _item.Quality = _item.Quality + 1;
                         }
                     }
                 }
