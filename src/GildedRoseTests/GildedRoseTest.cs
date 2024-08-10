@@ -172,7 +172,7 @@ namespace GildedRoseTests
         [Fact]
         public void Conjured_item_quality_does_not_degrade_past_zero()
         {
-            List<Item> items = [new Item { Name = "Conjured Moon Cake", Quality = 0, SellIn = 0 }];
+            List<Item> items = [new Item { Name = "Conjured Moon Cake", Quality = 3, SellIn = 0 }];
             var app = new GildedRose(items);
             app.UpdateQuality();
             Assert.Equal(0, items[0].Quality);
