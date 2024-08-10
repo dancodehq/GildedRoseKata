@@ -47,6 +47,11 @@ namespace GildedRoseKata
             }
         }
 
+        abstract class ItemStrategyBase
+        {
+            public abstract void Update();
+        }
+
         class NormalItemStrategy
         {
             private readonly Item _item;
