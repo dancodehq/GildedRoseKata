@@ -119,6 +119,34 @@ namespace GildedRoseKata
             }
         }
 
+        class AgedBrieStrategy
+        {
+            private readonly Item _item;
+
+            public AgedBrieStrategy(Item item)
+            {
+                _item = item;
+            }
+
+            public void Update()
+            {
+                if (_item.Quality < 50)
+                {
+                    _item.Quality = _item.Quality + 1;
+                }
+
+                _item.SellIn = _item.SellIn - 1;
+
+                if (_item.SellIn < 0)
+                {
+                    if (_item.Quality < 50)
+                    {
+                        _item.Quality = _item.Quality + 1;
+                    }
+                }
+            }
+        }
+
         private void UpdateAgedBrie(Item item)
         {
             if (item.Quality < 50)
