@@ -21,17 +21,13 @@ namespace GildedRoseKata
 
         private static ItemStrategyBase CreateItemStrategy(Item item)
         {
-            switch (item.Name)
+            return item.Name switch
             {
-                case "Aged Brie":
-                    return new AgedBrieStrategy(item);
-                case "Backstage passes to a TAFKAL80ETC concert":
-                    return new BackstagePassStrategy(item);
-                case "Sulfuras, Hand of Ragnaros": 
-                    return new SulfurasStrategy(item);
-                default:
-                    return new NormalItemStrategy(item);
-            }
+                "Aged Brie" => new AgedBrieStrategy(item),
+                "Backstage passes to a TAFKAL80ETC concert" => new BackstagePassStrategy(item),
+                "Sulfuras, Hand of Ragnaros" => new SulfurasStrategy(item),
+                _ => new NormalItemStrategy(item)
+            };
         }
 
         class SulfurasStrategy : ItemStrategyBase
