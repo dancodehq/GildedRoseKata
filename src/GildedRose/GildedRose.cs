@@ -14,25 +14,31 @@ namespace GildedRoseKata
         {
             foreach (var item in Items)
             {
-                ItemStrategyBase itemStrategy;
-                switch (item.Name)
-                {
-                    case "Aged Brie":
-                        itemStrategy = new AgedBrieStrategy(item);
-                        break;
-                    case "Backstage passes to a TAFKAL80ETC concert":
-                        itemStrategy = new BackstagePassStrategy(item);
-                        break;
-                    case "Sulfuras, Hand of Ragnaros":
-                        itemStrategy = new SulfurasStrategy(item);
-                        break;
-                    default:
-                        itemStrategy = new NormalItemStrategy(item);
-                        break;
-                }
-
+                var itemStrategy = CreateItemStrategy(item);
                 itemStrategy.Update();
             }
+        }
+
+        private static ItemStrategyBase CreateItemStrategy(Item item)
+        {
+            ItemStrategyBase itemStrategy;
+            switch (item.Name)
+            {
+                case "Aged Brie":
+                    itemStrategy = new AgedBrieStrategy(item);
+                    break;
+                case "Backstage passes to a TAFKAL80ETC concert":
+                    itemStrategy = new BackstagePassStrategy(item);
+                    break;
+                case "Sulfuras, Hand of Ragnaros":
+                    itemStrategy = new SulfurasStrategy(item);
+                    break;
+                default:
+                    itemStrategy = new NormalItemStrategy(item);
+                    break;
+            }
+
+            return itemStrategy;
         }
 
         class SulfurasStrategy : ItemStrategyBase
