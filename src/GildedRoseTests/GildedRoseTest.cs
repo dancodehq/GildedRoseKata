@@ -151,5 +151,32 @@ namespace GildedRoseTests
             Assert.Equal(28, items[0].Quality);
         }
 
+        [Fact]
+        public void Conjured_item_quality_degrades_by_four_each_day_when_sell_by_is_exceeded()
+        {
+            List<Item> items = [new Item { Name = "Conjured Moon Cake", Quality = 30, SellIn = 0 }];
+            var app = new GildedRose(items);
+            app.UpdateQuality();
+            Assert.Equal(26, items[0].Quality);
+        }
+        
+        [Fact]
+        public void Conjured_item_sell_by_decreases_by_one_each_day()
+        {
+            List<Item> items = [new Item { Name = "Conjured Moon Cake", Quality = 10, SellIn = 5 }];
+            var app = new GildedRose(items);
+            app.UpdateQuality();
+            Assert.Equal(4, items[0].SellIn);
+        }
+
+        [Fact]
+        public void Conjured_item_quality_does_not_degrade_past_zero()
+        {
+            List<Item> items = [new Item { Name = "Conjured Moon Cake", Quality = 0, SellIn = 0 }];
+            var app = new GildedRose(items);
+            app.UpdateQuality();
+            Assert.Equal(0, items[0].Quality);
+        }
+
     }
 }
