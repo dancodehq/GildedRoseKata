@@ -27,7 +27,6 @@ namespace GildedRoseKata
                         break;
                     default:
                         new NormalItemStrategy(item).Update();
-                        //UpdateNormal(item);
                         break;
                 }
             }
@@ -57,24 +56,6 @@ namespace GildedRoseKata
                     {
                         _item.Quality = _item.Quality - 1;
                     }
-                }
-            }
-        }
-
-        private void UpdateNormal(Item item)
-        {
-            if (item.Quality > 0)
-            {
-                item.Quality = item.Quality - 1;
-            }
-
-            item.SellIn = item.SellIn - 1;
-
-            if (item.SellIn < 0)
-            {
-                if (item.Quality > 0)
-                {
-                    item.Quality = item.Quality - 1;
                 }
             }
         }
