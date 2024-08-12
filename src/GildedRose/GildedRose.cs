@@ -52,7 +52,7 @@ namespace GildedRoseKata
             }
         }
 
-        abstract class ItemBase
+        public abstract class ItemBase
         {
             const int MinQuality = 0;
             const int MaxQuality = 50;
