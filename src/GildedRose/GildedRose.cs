@@ -96,19 +96,21 @@ namespace GildedRoseKata
 
             public override void Update()
             {
-                if (_item.Quality > 0)
-                {
-                    _item.Quality = Math.Clamp(_item.Quality - 2, 0, 50);
-                }
+                DecreaseQuality();
 
                 _item.SellIn = _item.SellIn - 1;
 
                 if (_item.SellIn < 0)
                 {
-                    if (_item.Quality > 0)
-                    {
-                        _item.Quality = Math.Clamp(_item.Quality - 2, 0, 50);
-                    }
+                    DecreaseQuality();
+                }
+            }
+
+            private void DecreaseQuality()
+            {
+                if (_item.Quality > 0)
+                {
+                    _item.Quality = Math.Clamp(_item.Quality - 2, 0, 50);
                 }
             }
         }
