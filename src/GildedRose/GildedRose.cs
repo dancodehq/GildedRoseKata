@@ -67,6 +67,11 @@ namespace GildedRoseKata
             {
                 return Item.SellIn < 0;
             }
+
+            protected void DecreaseExpiry()
+            {
+                Item.SellIn = Item.SellIn - 1;
+            }
         }
 
         class NormalItem : ItemBase
@@ -88,11 +93,6 @@ namespace GildedRoseKata
                 {
                     DecreaseQuality();
                 }
-            }
-
-            private void DecreaseExpiry()
-            {
-                _item.SellIn = _item.SellIn - 1;
             }
 
             private void DecreaseQuality()
@@ -123,11 +123,6 @@ namespace GildedRoseKata
                 {
                     DecreaseQuality();
                 }
-            }
-
-            private void DecreaseExpiry()
-            {
-                _item.SellIn = _item.SellIn - 1;
             }
 
             private void DecreaseQuality()
@@ -175,11 +170,6 @@ namespace GildedRoseKata
                 _item.Quality = _item.Quality - _item.Quality;
             }
 
-            private void DecreaseExpiry()
-            {
-                _item.SellIn = _item.SellIn - 1;
-            }
-
             private void IncreaseQuality()
             {
                 if (_item.Quality < 50)
@@ -208,11 +198,6 @@ namespace GildedRoseKata
                 {
                     IncreaseQuality();
                 }
-            }
-
-            private void DecreaseExpiry()
-            {
-                _item.SellIn = _item.SellIn - 1;
             }
 
             private void IncreaseQuality()
