@@ -85,6 +85,11 @@ namespace GildedRoseKata
             {
                 Item.Quality = Math.Clamp(Item.Quality + 1, MinQuality, MaxQuality);
             }
+
+            protected void ResetQualityToZero()
+            {
+                Item.Quality = Item.Quality - Item.Quality;
+            }
         }
 
         class NormalItem : ItemBase
@@ -160,11 +165,6 @@ namespace GildedRoseKata
                 {
                     ResetQualityToZero();
                 }
-            }
-
-            private void ResetQualityToZero()
-            {
-                _item.Quality = _item.Quality - _item.Quality;
             }
         }
 
