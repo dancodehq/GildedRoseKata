@@ -62,6 +62,11 @@ namespace GildedRoseKata
             }
 
             public abstract void Update();
+
+            protected bool IsExpired()
+            {
+                return Item.SellIn < 0;
+            }
         }
 
         class NormalItem : ItemBase
@@ -178,11 +183,6 @@ namespace GildedRoseKata
             private void ResetQualityToZero()
             {
                 _item.Quality = _item.Quality - _item.Quality;
-            }
-
-            private bool IsExpired()
-            {
-                return _item.SellIn < 0;
             }
 
             private void DecreaseExpiry()
