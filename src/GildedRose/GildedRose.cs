@@ -167,12 +167,17 @@ namespace GildedRoseKata
             {
                 IncreaseQuality();
 
-                _item.SellIn = _item.SellIn - 1;
+                DecreaseExpiry();
 
                 if (_item.SellIn < 0)
                 {
                     IncreaseQuality();
                 }
+            }
+
+            private void DecreaseExpiry()
+            {
+                _item.SellIn = _item.SellIn - 1;
             }
 
             private void IncreaseQuality()
