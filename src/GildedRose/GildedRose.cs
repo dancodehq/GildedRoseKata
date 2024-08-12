@@ -80,6 +80,11 @@ namespace GildedRoseKata
             {
                 Item.Quality = Math.Clamp(Item.Quality - step, MinQuality, MaxQuality);
             }
+
+            protected void IncreaseQuality()
+            {
+                Item.Quality = Math.Clamp(Item.Quality + 1, MinQuality, MaxQuality);
+            }
         }
 
         class NormalItem : ItemBase
@@ -161,14 +166,6 @@ namespace GildedRoseKata
             {
                 _item.Quality = _item.Quality - _item.Quality;
             }
-
-            private void IncreaseQuality()
-            {
-                if (_item.Quality < 50)
-                {
-                    _item.Quality = _item.Quality + 1;
-                }
-            }
         }
 
         class AgedBrie : ItemBase
@@ -189,14 +186,6 @@ namespace GildedRoseKata
                 if (IsExpired())
                 {
                     IncreaseQuality();
-                }
-            }
-
-            private void IncreaseQuality()
-            {
-                if (_item.Quality < 50)
-                {
-                    _item.Quality = _item.Quality + 1;
                 }
             }
         }
