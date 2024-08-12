@@ -41,7 +41,7 @@ namespace GildedRoseKata
         {
             private readonly Item _item;
 
-            public Sulfuras(Item item)
+            public Sulfuras(Item item) : base(item)
             {
                 _item = item;
             }
@@ -54,6 +54,13 @@ namespace GildedRoseKata
 
         abstract class ItemBase
         {
+            protected Item Item { get; }
+            
+            protected ItemBase(Item item)
+            {
+                Item = item;
+            }
+
             public abstract void Update();
         }
 
@@ -61,7 +68,7 @@ namespace GildedRoseKata
         {
             private readonly Item _item;
 
-            public NormalItem(Item item)
+            public NormalItem(Item item) : base(item)
             {
                 _item = item;
             }
@@ -101,7 +108,7 @@ namespace GildedRoseKata
         {
             private readonly Item _item;
 
-            public ConjuredItem(Item item)
+            public ConjuredItem(Item item) : base(item)
             {
                 _item = item;
             }
@@ -141,7 +148,7 @@ namespace GildedRoseKata
         {
             private readonly Item _item;
 
-            public BackstagePass(Item item)
+            public BackstagePass(Item item) : base(item)
             {
                 _item = item;
             }
@@ -196,7 +203,7 @@ namespace GildedRoseKata
         {
             private readonly Item _item;
 
-            public AgedBrie(Item item)
+            public AgedBrie(Item item) : base(item)
             {
                 _item = item;
             }
