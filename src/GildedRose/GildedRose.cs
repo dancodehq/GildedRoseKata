@@ -140,8 +140,13 @@ namespace GildedRoseKata
 
                 if (IsExpired())
                 {
-                    _item.Quality = _item.Quality - _item.Quality;
+                    ResetQualityToZero();
                 }
+            }
+
+            private void ResetQualityToZero()
+            {
+                _item.Quality = _item.Quality - _item.Quality;
             }
 
             private bool IsExpired()
