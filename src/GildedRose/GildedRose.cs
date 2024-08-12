@@ -94,11 +94,8 @@ namespace GildedRoseKata
 
         class NormalItem : ItemBase
         {
-            private readonly Item _item;
-
             public NormalItem(Item item) : base(item)
             {
-                _item = item;
             }
 
             public override void Update()
@@ -116,11 +113,8 @@ namespace GildedRoseKata
 
         class ConjuredItem : ItemBase
         {
-            private readonly Item _item;
-
             public ConjuredItem(Item item) : base(item)
             {
-                _item = item;
             }
 
             public override void Update()
@@ -138,11 +132,8 @@ namespace GildedRoseKata
 
         class BackstagePass : ItemBase
         {
-            private readonly Item _item;
-
             public BackstagePass(Item item) : base(item)
             {
-                _item = item;
             }
 
             public override void Update()
@@ -170,11 +161,8 @@ namespace GildedRoseKata
 
         class AgedBrie : ItemBase
         {
-            private readonly Item _item;
-
             public AgedBrie(Item item) : base(item)
             {
-                _item = item;
             }
 
             public override void Update()
