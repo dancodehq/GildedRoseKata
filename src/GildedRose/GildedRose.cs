@@ -149,12 +149,12 @@ namespace GildedRoseKata
             {
                 IncreaseQuality();
 
-                if (_item.SellIn < 11)
+                if (Item.SellIn < 11)
                 {
                     IncreaseQuality();
                 }
 
-                if (_item.SellIn < 6)
+                if (Item.SellIn < 6)
                 {
                     IncreaseQuality();
                 }
