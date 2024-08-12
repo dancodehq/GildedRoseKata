@@ -54,6 +54,9 @@ namespace GildedRoseKata
 
         abstract class ItemBase
         {
+            const int MinQuality = 0;
+            const int MaxQuality = 50;
+            
             protected Item Item { get; }
             
             protected ItemBase(Item item)
@@ -72,6 +75,11 @@ namespace GildedRoseKata
             {
                 Item.SellIn = Item.SellIn - 1;
             }
+
+            protected void DecreaseQuality(int step)
+            {
+                Item.Quality = Math.Clamp(Item.Quality - step, MinQuality, MaxQuality);
+            }
         }
 
         class NormalItem : ItemBase
@@ -85,21 +93,13 @@ namespace GildedRoseKata
 
             public override void Update()
             {
-                DecreaseQuality();
+                DecreaseQuality(step: 1);
 
                 DecreaseExpiry();
 
                 if (IsExpired())
                 {
-                    DecreaseQuality();
-                }
-            }
-
-            private void DecreaseQuality()
-            {
-                if (_item.Quality > 0)
-                {
-                    _item.Quality = _item.Quality - 1;
+                    DecreaseQuality(step: 1);
                 }
             }
         }
@@ -115,21 +115,13 @@ namespace GildedRoseKata
 
             public override void Update()
             {
-                DecreaseQuality();
+                DecreaseQuality(step: 2);
 
                 DecreaseExpiry();
 
                 if (IsExpired())
                 {
-                    DecreaseQuality();
-                }
-            }
-
-            private void DecreaseQuality()
-            {
-                if (_item.Quality > 0)
-                {
-                    _item.Quality = Math.Clamp(_item.Quality - 2, 0, 50);
+                    DecreaseQuality(step: 2);
                 }
             }
         }
