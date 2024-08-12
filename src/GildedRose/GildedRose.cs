@@ -90,11 +90,6 @@ namespace GildedRoseKata
                 }
             }
 
-            private bool IsExpired()
-            {
-                return _item.SellIn < 0;
-            }
-
             private void DecreaseExpiry()
             {
                 _item.SellIn = _item.SellIn - 1;
@@ -128,11 +123,6 @@ namespace GildedRoseKata
                 {
                     DecreaseQuality();
                 }
-            }
-
-            private bool IsExpired()
-            {
-                return _item.SellIn < 0;
             }
 
             private void DecreaseExpiry()
@@ -218,11 +208,6 @@ namespace GildedRoseKata
                 {
                     IncreaseQuality();
                 }
-            }
-
-            private bool IsExpired()
-            {
-                return _item.SellIn < 0;
             }
 
             private void DecreaseExpiry()
