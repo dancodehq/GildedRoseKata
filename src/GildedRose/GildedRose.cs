@@ -68,19 +68,21 @@ namespace GildedRoseKata
 
             public override void Update()
             {
-                if (_item.Quality > 0)
-                {
-                    _item.Quality = _item.Quality - 1;
-                }
+                DecreaseQuality();
 
                 _item.SellIn = _item.SellIn - 1;
 
                 if (_item.SellIn < 0)
                 {
-                    if (_item.Quality > 0)
-                    {
-                        _item.Quality = _item.Quality - 1;
-                    }
+                    DecreaseQuality();
+                }
+            }
+
+            private void DecreaseQuality()
+            {
+                if (_item.Quality > 0)
+                {
+                    _item.Quality = _item.Quality - 1;
                 }
             }
         }
