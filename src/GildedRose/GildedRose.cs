@@ -169,10 +169,15 @@ namespace GildedRoseKata
 
                 DecreaseExpiry();
 
-                if (_item.SellIn < 0)
+                if (IsExpired())
                 {
                     IncreaseQuality();
                 }
+            }
+
+            private bool IsExpired()
+            {
+                return _item.SellIn < 0;
             }
 
             private void DecreaseExpiry()
