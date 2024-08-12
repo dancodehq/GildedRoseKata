@@ -124,25 +124,16 @@ namespace GildedRoseKata
 
             public override void Update()
             {
-                if (_item.Quality < 50)
-                {
-                    _item.Quality = _item.Quality + 1;
-                }
+                IncreaseQuality();
 
                 if (_item.SellIn < 11)
                 {
-                    if (_item.Quality < 50)
-                    {
-                        _item.Quality = _item.Quality + 1;
-                    }
+                    IncreaseQuality();
                 }
 
                 if (_item.SellIn < 6)
                 {
-                    if (_item.Quality < 50)
-                    {
-                        _item.Quality = _item.Quality + 1;
-                    }
+                    IncreaseQuality();
                 }
 
                 _item.SellIn = _item.SellIn - 1;
@@ -150,6 +141,14 @@ namespace GildedRoseKata
                 if (_item.SellIn < 0)
                 {
                     _item.Quality = _item.Quality - _item.Quality;
+                }
+            }
+
+            private void IncreaseQuality()
+            {
+                if (_item.Quality < 50)
+                {
+                    _item.Quality = _item.Quality + 1;
                 }
             }
         }
