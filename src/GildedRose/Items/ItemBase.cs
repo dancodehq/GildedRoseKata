@@ -4,9 +4,6 @@ namespace GildedRoseKata.Items;
 
 abstract class ItemBase
 {
-    const int MinQuality = 0;
-    const int MaxQuality = 50;
-            
     protected Item Item { get; }
             
     protected ItemBase(Item item)
@@ -28,16 +25,24 @@ abstract class ItemBase
 
     protected void DecreaseQuality(int step)
     {
-        Item.Quality = Math.Clamp(Item.Quality - step, MinQuality, MaxQuality);
+        Item.Quality = Clamp(Item.Quality - step);
     }
 
     protected void IncreaseQuality()
     {
-        Item.Quality = Math.Clamp(Item.Quality + 1, MinQuality, MaxQuality);
+        Item.Quality = Clamp(Item.Quality + 1);
     }
 
     protected void ResetQualityToZero()
     {
         Item.Quality = Item.Quality - Item.Quality;
+    }
+
+    private int Clamp(int newItemQuality)
+    {
+        const int MinQuality = 0;
+        const int MaxQuality = 50;
+        
+        return Math.Clamp(newItemQuality, MinQuality, MaxQuality);
     }
 }
