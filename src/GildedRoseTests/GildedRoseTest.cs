@@ -6,6 +6,20 @@ namespace GildedRoseTests
 {
     public class GildedRoseTest
     {
+        [Theory]
+        [InlineData("Sword", 5, 4)]
+        [InlineData("Aged Brie", 5, 4)]
+        [InlineData("Backstage passes to a TAFKAL80ETC concert", 5, 4)]
+        [InlineData("Sulfuras, Hand of Ragnaros", 5, 5)]
+        [InlineData("Conjured Moon Cake", 5, 4)]
+        public void Sell_in_is_updated_each_day(string itemName, int sellIn, int expectedSellIn)
+        {
+            List<Item> items = [new Item { Name = itemName, Quality = 10, SellIn = sellIn }];
+            var app = new GildedRose(items);
+            app.UpdateQuality();
+            Assert.Equal(expectedSellIn, items[0].SellIn);
+        }
+        
         [Fact]
         public void Normal_item_quality_degrades_by_one_each_day_when_sell_by_is_in_the_future()
         {
