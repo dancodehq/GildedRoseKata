@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using GildedRoseKata.Items;
 
 namespace GildedRoseKata
@@ -13,27 +14,18 @@ namespace GildedRoseKata
 
         public void UpdateQuality()
         {
-            foreach (var item in Items)
+            var mappedItems = Items.Select<Item, ItemBase>(item => item.Name switch
             {
-                var gildedRoseItem = CreateItem(item);
-                gildedRoseItem.Update();
-            }
-        }
-
-        private static ItemBase CreateItem(Item item)
-        {
-            switch (item.Name)
+                "Aged Brie" => new AgedBrie(item),
+                "Backstage passes to a TAFKAL80ETC concert" => new BackstagePass(item),
+                "Sulfuras, Hand of Ragnaros" => new Sulfuras(item),
+                { } x when x.StartsWith("Conjured") => new ConjuredItem(item),
+                _ => new NormalItem(item)
+            });
+                
+            foreach (var item in mappedItems)
             {
-                case "Aged Brie":
-                    return new AgedBrie(item);
-                case "Backstage passes to a TAFKAL80ETC concert":
-                    return new BackstagePass(item);
-                case "Sulfuras, Hand of Ragnaros":
-                    return new Sulfuras(item);
-                case { } x when x.StartsWith("Conjured"):
-                    return new ConjuredItem(item);
-                default:
-                    return new NormalItem(item);
+                item.Update();
             }
         }
     }
